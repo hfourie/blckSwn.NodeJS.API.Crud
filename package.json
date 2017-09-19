@@ -1,0 +1,26 @@
+{
+  "name": "blckswn.node.api",
+  "version": "1.0.0",
+  "description": "api crud test",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hardus Quintin Fourie",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "isodate": "^0.1.4",
+    "moment": "^2.18.1",
+    "mongodb": "^2.2.31",
+    "node-schedule": "^1.2.4",
+    "urlencode": "^1.1.0",
+    "vash": "^0.12.2"
+  }
+}
