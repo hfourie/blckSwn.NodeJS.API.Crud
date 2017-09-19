@@ -1,4 +1,12 @@
 (function(seedData){
+
+    //I have created mock data to test with 
+    //the following collections and subdocuments 
+    //will be picked up in the index.js file and 
+    //written to the database only when no data is present
+
+    
+
     var ObjectID = require('mongodb').ObjectID;
     var moment = require('moment');
     var isodate = require("isodate");

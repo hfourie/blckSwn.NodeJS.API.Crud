@@ -3,6 +3,7 @@
     var database = require("../data/database");
 
     //User Task API Functions
+
     taskModel.getUserTasks = function(myquery, projection, next){
         database.getDb(function(err, db){
             if(err){
@@ -52,6 +53,10 @@
             }
         });
     };
+
+    //I did not create a separate model 
+    //for the task schedular as the data 
+    //still manipulates the task data
 
     //Task Schedule Functions
     taskModel.getPendingTasks = function(myquery, projection, next){

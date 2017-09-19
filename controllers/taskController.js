@@ -1,13 +1,17 @@
 
 (function(taskController){
 
+//using a self executing function in node is not realy necessary 
+//but for me it keeps the code modular 
+
+//pulled in the libs and js files needed for code excecution
 var taskModel = require("../models/taskModel");
 var ObjectID = require('mongodb').ObjectID;
 var moment = require('moment');
 
     taskController.init = function(app){
 
-        //Get all user tasks - working
+        //Get all user tasks
         app.get("/api/users/:user_id/tasks", function(req, res){
             var myquery ={
                 _id: ObjectID(req.params.user_id), 
@@ -27,7 +31,7 @@ var moment = require('moment');
             });
         });
 
-        //Get user task - working
+        //Get user task
         app.get("/api/users/:user_id/tasks/:task_id", function(req, res){
 
             var myquery ={
@@ -53,7 +57,7 @@ var moment = require('moment');
             });
         });
 
-        //Create user task -working
+        //Create user task
         app.post("/api/users/:user_id/tasks", function(req, res){
 
             var myquery ={
@@ -79,7 +83,7 @@ var moment = require('moment');
             });
         });
 
-        //Update user task - working
+        //Update user task
         app.put("/api/users/:user_id/tasks/:task_id", function(req, res){
 
             var myquery ={
@@ -104,7 +108,7 @@ var moment = require('moment');
             });
         });
 
-        //Delete user task - working
+        //Delete user task
         app.delete("/api/users/:user_id/tasks/:task_id", function(req, res){
 
            var myquery ={

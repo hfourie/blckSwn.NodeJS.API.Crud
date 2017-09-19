@@ -5,7 +5,7 @@ var ObjectID = require('mongodb').ObjectID;
 
     userController.init = function(app){
 
-        //Get all users - not working
+        //Get all users
         app.get("/api/users", function(req, res){
             userModel.getUsers(function(err, users){
                 if(err){
@@ -17,7 +17,7 @@ var ObjectID = require('mongodb').ObjectID;
             });
         });
 
-        //Get User by Id - working
+        //Get User by Id
         app.get("/api/users/:user_id", function(req, res){
 
             var myquery ={
@@ -34,7 +34,7 @@ var ObjectID = require('mongodb').ObjectID;
             });
         });
 
-        //Create a user - working
+        //Create a user
         app.post("/api/users", function(req, res){
 
             var userToInsert = {
@@ -53,7 +53,7 @@ var ObjectID = require('mongodb').ObjectID;
             });
         });
 
-        //Update a user by Id -working
+        //Update a user by Id
         app.put("/api/users/:user_id", function(req, res){
 
             var myquery ={
@@ -80,7 +80,7 @@ var ObjectID = require('mongodb').ObjectID;
             });
         });
 
-        //Delete User - working
+        //Delete User
         app.delete("/api/users/:user_id", function(req, res){
             var myquery ={
                 _id: ObjectID(req.params.user_id)

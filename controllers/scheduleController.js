@@ -1,5 +1,12 @@
 (function(scheduleController){    
 
+//The Task schedular will run every minute
+//it will look for User tasks that has passed the 
+//next_execute_date_time wich is set to expire 5 min after task creation
+//and has a status code of pending
+//the result will be logged top the console
+
+//include the following libs and js files to excute the code
 var taskModel = require("../models/taskModel");
 var schedule = require('node-schedule');
 var moment = require('moment');
@@ -31,6 +38,8 @@ scheduleController.init = function(app){
             "tasks.next_execute_date_time":"0"
         };
 
+        //pass through the query and projection to pull necessary data
+
         taskModel.getPendingTasks(myquery, projection, function(err, pendingTasks){
             if(err){
                 res.send(400, err);
@@ -40,6 +49,11 @@ scheduleController.init = function(app){
                 {   
                     pendingTask.tasks.forEach(function(item){
 
+                        //I could not get my query to select tasks that have passed  
+                        //next_execute_date_time and status code pending
+                        //using $elemMatch works great for single selects from a sub-socument
+                        //the problem came in when I seeded the data and $elemMatch only selected the first item in my subdocuments
+                        //I looked at aggregation but was running out of time so i improvised and wrote code to filter my select 
                         if(item.status === "pending" && currentDateTime > item.next_execute_date_time){
                                 var myquery ={
                                     _id: ObjectID(pendingTask._id), 

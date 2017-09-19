@@ -1,12 +1,10 @@
 
+
 var http = require('http');
 var server = http.createServer(app);
 
 var express = require('express');
 var bodyParser = require('body-parser');
-var flash = require("connect-flash");
-var expressSession = require("express-session")
-var cookieParser = require("cookie-parser");
 
 var app = express();
 var controllers = require('./controllers');
@@ -17,10 +15,6 @@ app.set('view engine', 'vash');
 //opt into services
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
-//to use flash we will need to use all 3 of these services
-app.use(cookieParser());
-app.use(expressSession({secret:"BlckSwnSession"}));
-app.use(flash());
 
 //set the public static resource folder
 app.use(express.static(__dirname + "/public"));
