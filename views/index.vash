@@ -87,16 +87,17 @@
 <p>A task update schedule has been setup to run every minute and update records with status: pending. </p>
 <p>The next_execute_date_time has been set to 5 minutes after task creation.</p> 
 <p>
-With the limited experiance I have in mongodb I could not figure out how to 
-select multiple sub-documents in time(guessing it has to do with aggregation...), to bring as little back from the databse 
-as possible. I have setup code in the task schedular to check for next_execute_date_time and pending status codes. </p>
+With the limited experience I have in mongodb I could not figure out how to 
+select multiple sub-documents in time(guessing it has to do with aggregation...), to bring as little back from the database 
+as possible. I have setup code in the task scheduler to check for next_execute_date_time and pending status codes.
+</p>
 </div>
 
 <div class="col-sm-6">
 <h2>MongoDb</h2>
 
 <p>I have setup the project to read and write to a mongodb database</p>
-<p>When the project is started using the gulp command the database will be seeded with test USERS and TASKS</p> 
+<p>When running the project with the gulp command mock data will seed the database with test USERS and TASKS</p> 
 </div>
 
 </div>
@@ -106,7 +107,7 @@ as possible. I have setup code in the task schedular to check for next_execute_d
 <div class="col-sm-6">
 <h2>Comments</h2>
 
-<p>I just want to thank you for this opportuny. I really had a lot of fun creating an API project with node.js and using Mongodb.</p>
+<p>I just want to thank you for this opportunity. I really had a lot of fun creating an API project with node.js and using Mongodb.</p>
 </div>
 
 </div>
