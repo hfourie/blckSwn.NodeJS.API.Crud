@@ -19,7 +19,7 @@ var moment = require('moment');
 
             taskModel.getUserTasks(myquery, projection, function(err, tasks){
                 if(err){
-                    res.send(400, err);
+                    res.status(400).send(err);
                 }else{
                     res.set("Content-Type", "application/json");
                     res.status(200).send(tasks);
@@ -45,7 +45,7 @@ var moment = require('moment');
 
             taskModel.getUserTask(myquery, projection, function(err, task){
                 if(err){
-                    res.send(400, err);
+                    res.status(400).send(err);
                 }else{
                     res.set("Content-Type", "application/json");
                     res.status(200).send(task);
@@ -71,7 +71,7 @@ var moment = require('moment');
 
             taskModel.creatUserTask(myquery, taskToInsert, function(err){
                 if(err){
-                    res.send(400, "Failed to add note to data store" + err);
+                    res.status(400).send("Failed to add note to data store" + err);
                 }else{
                     res.set("Content-Type", "application/json");
                     res.status(201).send(taskToInsert);

@@ -9,7 +9,7 @@ var ObjectID = require('mongodb').ObjectID;
         app.get("/api/users", function(req, res){
             userModel.getUsers(function(err, users){
                 if(err){
-                    res.send(400, err);
+                    res.status(400).send(err);
                 }else{
                     res.set("Content-Type", "application/json");
                     res.status(200).send(users);
@@ -26,7 +26,7 @@ var ObjectID = require('mongodb').ObjectID;
 
             userModel.getUser(myquery, function(err, tasks){
                 if(err){
-                    res.send(400, err);
+                    res.status(400).send(err);
                 }else{
                     res.set("Content-Type", "application/json");
                     res.status(200).send(tasks);
@@ -45,7 +45,7 @@ var ObjectID = require('mongodb').ObjectID;
 
             userModel.createUser(userToInsert, function(err){
                 if(err){
-                    res.send(400, err);
+                    res.status(400).send(err);
                 }else{
                     res.set("Content-Type", "application/json");
                     res.status(201).send(userToInsert);
@@ -72,7 +72,7 @@ var ObjectID = require('mongodb').ObjectID;
             
             userModel.updateUser(myquery, userDetailsToUpdate, username, function(err){
                 if(err){
-                    res.send(400, "Failed to update user details. " + err);
+                    res.status(400).send("Failed to update user details. " + err);
                 }else{
                     res.set("Content-Type", "application/json");
                     res.status(201).send(userDetailsToUpdate);
@@ -88,7 +88,7 @@ var ObjectID = require('mongodb').ObjectID;
 
             userModel.deleteUser(myquery, function(err){
                 if(err){
-                    res.send(400, "Failed to delete user. " + err);
+                    res.status(400).send("Failed to delete user. " + err);
                 }else{
                     res.set("Content-Type", "application/json");
                     res.status(200).send();

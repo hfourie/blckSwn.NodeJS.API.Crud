@@ -9,7 +9,6 @@
                 if(err){
                     next(err);
                 }else{
-                    console.log('user code called');
                     db.users.find().toArray(function(err, users) {
                     if(err){
                         next(err);
